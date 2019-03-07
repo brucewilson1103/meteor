@@ -20,61 +20,57 @@ render() {
   return (
     <React.Fragment>
       {/* make jumbotron */}
-      <div className="jumbotron jumbotron-fluid bg-light text-dark">
-        <div className="container-fluid">
-          <h1>Search For Books Here</h1>
-        </div>
-      </div>
+      
       {/* create row with two columns */}
       <div className="container-fluid">
         <div className="row">
           {/* form section */}
           <div className="col-12 col-sm-6 col-md-3">
-            <h3>Search For A Book</h3>
+            <h3>Search For An Asteroid</h3>
             <form onSubmit={this.handleFormSubmit}>
               <input
                 name="searchTerm"
                 onChange={this.handleInputChange}
-                placeholder="Enter book name here"
+                placeholder="Enter NEO name here"
                 value={this.state.searchTerm}
                 type="input"
                 className="form-control mb-3"
               />
               <button className="btn btn-block btn-success" onClick={this.handleFormSubmit}>
-                Search for book.
+                Search for an Asteroid.
               </button>
             </form>
           </div>
           {/* end form section */}
           {/* begin book result section */}
           <div className="col-12 col-sm-6 col-md-9">
-            {!this.state.length ? (
+            {!this.state.neos.length ? (
               <h2 className="text-center">Search For a Near Earth Object</h2>
             ) : (
               <React.Fragment>
-                <h3>Search Results for: {this.state.searchTerm}</h3>
+                <h3>Recent Hazardous Asteroids {this.state.searchTerm}</h3>
                 <div className="row">
-                  {this.state.map(book => {
+                  {this.state.neos.map(neos => {
                     return (
-                      <div className="col-12 col-md-6" key={book.bookId}>
+                      <div className="col-12 col-md-6" key={neos.title}>
                         <div className="card">
-                          <img src={book.image} alt={book.title} className="card-img-top" />
+                          <img src={neos.image} alt={neos.title} className="card-img-top" />
                           <div className="card-body">
-                            <h5 className="card-title">{book.title}</h5>
-                            <p className="card-text">Released: {book.date}</p>
-                            {book.authors ? <p className="card-text">By: {book.authors.join(', ')}</p> : ''}
+                            <h5 className="card-title">{neos.title}</h5>
+                            <p className="card-text">Released: {neos.date}</p>
+                            {neos.authors ? <p className="card-text">By: {neos.authors.join(', ')}</p> : ''}
                             <p className="card-text">
-                              <strong>Description</strong>: {book.description}{' '}
+                              <strong>Description</strong>: {neos.title}{' '}
                             </p>
 
                             <a
-                              href={book.link}
+                              href={neos.link}
                               rel="noopener noreferrer"
                               target="_blank"
                               className="btn btn-success btn-small">
                               See More.
                             </a>
-                            <button onClick={() => this.saveBook(book.bookId)} className="btn btn-dark btn-small">
+                            <button onClick={() => this.saveBook(neos.bookId)} className="btn btn-dark btn-small">
                               Save Object.
                             </button>
                           </div>

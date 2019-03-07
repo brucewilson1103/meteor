@@ -12,7 +12,7 @@ const Header = props => {
         </Link>
         <nav className="d-flex ml-auto">
           <NavLink
-            to="/"
+            to="/search"
             className="nav-link text-white"
             activeClassName="active"
           >
