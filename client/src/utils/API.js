@@ -1,22 +1,25 @@
-// Creates axios AJAX requests to NASA site
+import axios from 'axios';
 
-// import axios from "axios";
+export default {
 
-// export default {
-//     // Gets all books
-//     getBooks: function () {
-//         return axios.get("/api/books");
-//     },
-//     // Gets the book with the given id
-//     getBook: function (id) {
-//         return axios.get("/api/books/" + id);
-//     },
-//     // Deletes the book with the given id
-//     deleteBook: function (id) {
-//         return axios.delete("/api/books/" + id);
-//     },
-//     // Saves a book to the database
-//     saveBook: function (bookData) {
-//         return axios.post("/api/books", bookData);
-//     }
-// };
+    
+  // getSavedBooks() {
+  //   return axios.get('/api/books');
+  // },
+  // getBookById(bookId) {
+  //   return axios.get(`/api/books/${bookId}`);
+  // },
+  // saveBook(bookData) {
+  //   return axios.post('/api/books', bookData);
+  // },
+  // deleteBook(bookId) {
+  //   return axios.delete(`/api/books/${bookId}`);
+  // },
+  // // https://www.googleapis.com/books/v1/volumes?q=Harry+Potter
+  // searchGoogleBooks(bookQuery) {
+  //   return axios.get('https://www.googleapis.com/books/v1/volumes', { params: {
+  //     q: bookQuery    
+  //   }
+  // })
+  // }
+};
