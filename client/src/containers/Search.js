@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
 import axios from "axios";
+import moment from "moment";
 
 class Search extends Component {
   state = {
     searchTerm: '',
-    neos: []
+    neos: [],
+    recentNeos: []
   };
 
   componentDidMount() {
     axios
-      .get("/neo")
-      .then(res => this.setState({ neos: res.data }))
+      .get(API.getNeosByDate(moment(Date.now()).format("YYYY, MM, DD")))
+      .then(res => this.setState({ recentNeos: res.data }))
       .catch(err => console.log(err));
       
   }
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (!this.state.searchTerm) {
+      return false;
+    }
+    API.getNeosByDate(this.state.searchTerm)
+    .then(res => this.setState({ recentNeos: res.data }))
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    });
+  };
 
 render() {
   return (
@@ -26,14 +44,14 @@ render() {
         <div className="row">
           {/* form section */}
           <div className="col-12 col-sm-6 col-md-3">
-            <h3>Search For An Asteroid</h3>
+            <h3>Will an Asteroid destroy the Earth on your Birthday?</h3>
             <form onSubmit={this.handleFormSubmit}>
               <input
                 name="searchTerm"
                 onChange={this.handleInputChange}
                 placeholder="Enter NEO name here"
                 value={this.state.searchTerm}
-                type="input"
+                type="date"
                 className="form-control mb-3"
               />
               <button className="btn btn-block btn-success" onClick={this.handleFormSubmit}>

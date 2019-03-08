@@ -18,8 +18,9 @@ class App extends Component {
       .get("/neo")
       .then(res => this.setState({ neos: res.data }))
       .catch(err => console.log(err));
-      console.log(this.state)
+      
   }
+  
 
   render() {
     return (
@@ -27,8 +28,9 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-          <Route exact path="/" component={Search} />
+          <Route exact path="/" component={SpecificNeo} />
           <Route exact path="/saved" component={Saved} />
+          <Route exact path="/search" component={Search} />
           <Route exact path="/saved/:bookId" component={SpecificNeo} />
           <Route render={() => <h1 className="text-center m-5">404, Page Not Found!</h1>} />
         </Switch>
