@@ -2,3 +2,10 @@
   body{
     
     background-Image: url("/meteorCrater.png"); }
+
+    .whiteFont{
+      color: antiquewhite;
+    }
+    .dynamyte{
+      margin: 0, auto;
+    }

@@ -44,7 +44,7 @@ render() {
         <div className="row">
           {/* form section */}
           <div className="col-12 col-sm-6 col-md-3">
-            <h3>Will an Asteroid destroy the Earth on your Birthday?</h3>
+            <h3 className= "whiteFont">Will an Asteroid destroy the Earth this year on your Birthday?</h3>
             <form onSubmit={this.handleFormSubmit}>
               <input
                 name="searchTerm"
@@ -55,15 +55,15 @@ render() {
                 className="form-control mb-3"
               />
               <button className="btn btn-block btn-success" onClick={this.handleFormSubmit}>
-                Search for an Asteroid.
+                Search for a Birthday Asteroid.
               </button>
             </form>
           </div>
           {/* end form section */}
-          {/* begin book result section */}
+          {/* begin neo result section */}
           <div className="col-12 col-sm-6 col-md-9">
             {!this.state.neos.length ? (
-              <h2 className="text-center">Search For a Near Earth Object</h2>
+              <h2 className="text-center whiteFont">Birthday Destruction?</h2>
             ) : (
               <React.Fragment>
                 <h3>Recent Hazardous Asteroids {this.state.searchTerm}</h3>

@@ -50,7 +50,7 @@ render() {
                 onChange={this.handleInputChange}
                 placeholder="Enter NEO name here"
                 value={this.state.searchTerm}
-                type="date"
+                type="string"
                 className="form-control mb-3"
               />
               <button className="btn btn-block btn-success" onClick={this.handleFormSubmit}>
@@ -71,7 +71,7 @@ render() {
                     return (
                       <div className="col-12 col-md-6" key={neos.title}>
                         <div className="card">
-                          <img src={neos.image} alt={neos.title} className="card-img-top" />
+                          <img src="/asteroid.png" alt={neos.title} className="card-img-top" />
                           <div className="card-body">
                             <h5 className="card-title">{neos.title}</h5>
                             <p className="card-text">Released: {neos.date}</p>

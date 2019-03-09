@@ -43,10 +43,10 @@ class Saved extends Component {
             {/* begin book result section */}
             <div className="col-12">
               {!this.state.length ? (
-                <h2 className="text-center">No Saved Books To Display</h2>
+                <h2 className="text-center">No Saved Objects To Display</h2>
               ) : (
                 <React.Fragment>
-                  <h3>Showing Saved Books</h3>
+                  <h3>Showing Saved Objects</h3>
                   <div className="row">
                     {this.state.map(book => {
                       return (
@@ -69,9 +69,9 @@ class Saved extends Component {
                                 See More.
                               </a>
                               <button onClick={() => this.deleteBook(book._id)} className="btn btn-dark btn-small">
-                                Delete Book.
+                                Delete Object.
                               </button>
-                              <Link to={`/saved/${book._id}`} className="btn btn-block btn-danger">View Book</Link>
+                              <Link to={`/saved/${book._id}`} className="btn btn-block btn-danger">View Object</Link>
                             </div>
                           </div>
                         </div>

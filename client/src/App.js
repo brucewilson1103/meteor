@@ -32,11 +32,11 @@ class App extends Component {
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/saved/:bookId" component={SpecificNeo} />
-          <Route render={() => <h1 className="text-center m-5">404, Page Not Found!</h1>} />
+          <Route render={() => <img classname= "dynamyte " src="/404.png" alt="404" />} />
         </Switch>
           <div className="App">
             <header className="App-header">
-              <p>This is App.js</p>
+              <p>Bruce Wilson</p>
             </header>
             
           </div>
