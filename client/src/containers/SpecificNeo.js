@@ -66,7 +66,7 @@ render() {
                 className="form-control mb-3"
               />
               <button className="btn btn-block btn-success" onClick={this.handleFormSubmit}>
-                Search for an Asteroid.
+                Search for an Asteroid. padded
               </button>
             </form>
           </div> */}
@@ -82,14 +82,13 @@ render() {
                   {this.state.neos.map(neos => {
                     return (
                       <div className="col-12 col-md-6" key={neos.title}>
-                        <div className="card">
+                        <div className="card paddedCard">
                           <img className = "sizeAst" src="/asteroid.png" alt={neos.title} className="card-img-top" />
                           <div className="card-body">
                             <h5 className="card-title">{neos.title}</h5>
-                            <p className="card-text">Released: {neos.date}</p>
                             {neos.authors ? <p className="card-text">By: {neos.authors.join(', ')}</p> : ''}
                             <p className="card-text">
-                              <strong>Description</strong>: {neos.title}{' '}
+                              <strong>Dangerous Asteroid Name</strong>: {neos.title}{' '}
                             </p>
 
                             <a
