@@ -7,6 +7,7 @@ import './App.css';
 import Search from './containers/Search';
 import Saved from './containers/Saved';
 import SpecificNeo from './containers/SpecificNeo';
+import neo from './containers/Neo';
 
 class App extends Component {
   state = {
@@ -31,6 +32,7 @@ class App extends Component {
           <Route exact path="/" component={SpecificNeo} />
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/neo" component={neo} />
           <Route exact path="/saved/:bookId" component={SpecificNeo} />
           <Route render={() => <img classname= "dynamyte " src="/404.png" alt="404" />} />
         </Switch>

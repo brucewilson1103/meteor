@@ -4,7 +4,7 @@ import axios from "axios";
 import moment from "moment";
 import SpecificNeo from "./SpecificNeo"
 
-class Search extends Component {
+class Neo extends Component {
   state = {
     searchTerm: "",
     neos: [],
@@ -52,7 +52,7 @@ class Search extends Component {
             {/* form section */}
             <div className="col-12 col-sm-6 col-md-3">
               <h3 className="whiteFont">
-                Did an Asteroid come close to destroying the Earth on your Birthday?
+                To Search: Enter the Designation of a Specific Asteroid
               </h3>
               <form onSubmit={this.handleFormSubmit}>
                 <input
@@ -60,14 +60,14 @@ class Search extends Component {
                   onChange={this.handleInputChange}
                   placeholder="Enter NEO name here"
                   value={this.state.searchTerm}
-                  type="date"
+                  type="string"
                   className="form-control mb-3"
                 />
                 <button
                   className="btn btn-block btn-success"
                   onClick={this.handleFormSubmit}
                 >
-                  Search for a Birthday Asteroid.
+                  Search for a Specific Asteroid.
                 </button>
               </form>
             </div>
@@ -75,7 +75,7 @@ class Search extends Component {
             {/* begin neo result section */}
             <div className="col-12 col-sm-6 col-md-9">
               {!this.state.recentNeos.data ? (
-                <h2 className="text-center whiteFont">Birthday Destruction?</h2>
+                <img className = "sizeAst" src="/meteorCrater.png" alt="Search Image" className="card-img-top" />
               ) : (
                 <React.Fragment>
                   <h3 className="whiteFont">Hazardous Asteroids Near Your Birthday On {this.state.searchTerm}</h3>
@@ -119,4 +119,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default Neo;

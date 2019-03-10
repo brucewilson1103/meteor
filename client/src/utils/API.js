@@ -4,7 +4,10 @@ import axios from 'axios';
 export default {
 
     getNeosByDate (neoDate) {
-      return axios.get(`https://ssd-api.jpl.nasa.gov/cad.api?dist-max=10LD&date-min=${neoDate}&sort=date`)
+      return axios.get(`https://ssd-api.jpl.nasa.gov/cad.api?dist-max=10LD&date-min=${neoDate}&date-max=2050-01-01&sort=date`)
+    },
+    saveObject(bookData) {
+      return axios.post('/api/books', bookData);
     }
   // getSavedBooks() {
   //   return axios.get('/api/books');
