@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import axios from "axios";
 import moment from "moment";
+import SpecificNeo from "./SpecificNeo"
 
 class Search extends Component {
   state = {
@@ -37,6 +38,8 @@ class Search extends Component {
       [name]: value
     });
   };
+
+  
 
   render() {
     return (
@@ -82,7 +85,7 @@ class Search extends Component {
                     <div className="card paddedCard">
               
                       <div className="card-body">
-                        <h5 className="card-title titleNeo"><strong>NEO Designation</strong>: {recentNeo[0]}</h5>
+                        <h5 className="card-title titleNeo"><strong> NEO Designation</strong>: {recentNeo[0]}</h5>
                         <p className="card-text"><strong>Time of Closest Approach</strong>: {recentNeo[3]}</p>
                         <p className="card-text"><strong>Distance of Closest Approach (AU)</strong>: {recentNeo[5]}</p>
                         {recentNeo[10] ? <p className="card-text"><strong>Observable Brightness</strong>: {recentNeo[10]} in Magnitude</p> : ''}
@@ -91,16 +94,15 @@ class Search extends Component {
                         </p>
                           
                           {/* FIX THIS WITH DAVID */}
-                        <a let neoSearchTerm = {recentNeo[0]}
-                          href="https://ssd.jpl.nasa.gov/sbdb.cgi?sstr={neoSearchTerm}&orb=1"
+                        <a 
+                          href={`https://ssd.jpl.nasa.gov/sbdb.cgi?sstr=${recentNeo[0]}&orb=1`}
+                          
                           rel="noopener noreferrer"
                           target="_blank"
                           className="btn btn-success btn-small">
                           See More.
                         </a>
-                        {/* <button onClick={() => this.saveBook(recentNeos.bookId)} className="btn btn-dark btn-small">
-                          Save Object.
-                        </button> */}
+                       
                       </div>
                     </div>
                   </div>

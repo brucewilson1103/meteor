@@ -32,6 +32,18 @@ class Search extends Component {
       [name]: value
     });
   };
+  saveObject = objectTitle => {
+    // find book in this.state.booksList based on the objectTitle value
+    const objectPicked = this.state.neos.find(object => object.title === objectTitle);
+    console.log(objectPicked);
+    API.saveBook(objectPicked)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
 render() {
   return (
@@ -71,7 +83,7 @@ render() {
                     return (
                       <div className="col-12 col-md-6" key={neos.title}>
                         <div className="card">
-                          <img src="/asteroid.png" alt={neos.title} className="card-img-top" />
+                          <img className = "sizeAst" src="/asteroid.png" alt={neos.title} className="card-img-top" />
                           <div className="card-body">
                             <h5 className="card-title">{neos.title}</h5>
                             <p className="card-text">Released: {neos.date}</p>
@@ -87,7 +99,7 @@ render() {
                               className="btn btn-success btn-small">
                               See More.
                             </a>
-                            <button onClick={() => this.saveBook(neos.bookId)} className="btn btn-dark btn-small">
+                            <button onClick={() => this.saveObject(neos.title)} className="btn btn-dark btn-small">
                               Save Object.
                             </button>
                           </div>
