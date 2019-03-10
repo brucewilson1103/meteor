@@ -1,8 +1,10 @@
-
-  body{
+body{
     
-    background-Image: url("/meteorCrater.png"); }
+  background-Image: url("/asteroidbelt.jpg"); };
 
+font{
+  color: antiquewhite;
+}
     .whiteFont{
       color: antiquewhite;
     }

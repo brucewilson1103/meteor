@@ -3,20 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = props => {
   return (
-    <div className="jumbotron jumbotron-fluid bg-info text-light">
+    <div className="jumbotron jumbotron-fluid bg-dark text-light">
       <div className="container-fluid">
         
         <Link to="/" className="navbar-brand text-white"><h2>
           Recent and Upcoming Near Earth Objects and Potentially Hazardous
           Asteroids</h2>
         </Link>
-        <nav className="d-flex ml-auto">
+        <nav className="d-flex">
           <NavLink
             to="/search"
             className="nav-link text-white"
             activeClassName="active"
           >
-            Birthday Asteroids
+            <button className= "btn-info">Birthday Asteroids</button>
           </NavLink>
 
           <NavLink
@@ -24,14 +24,14 @@ const Header = props => {
             className="nav-link text-white"
             activeClassName="active"
           >
-            Saved
+            <button className= "btn-info"> Saved</button>
           </NavLink>
           <NavLink
             to="/neo"
             className="nav-link text-white"
             activeClassName="active"
           >
-            Neo
+            <button className="btn-info">Neo </button>
           </NavLink>
         </nav>
       </div>

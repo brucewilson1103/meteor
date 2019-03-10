@@ -54,7 +54,7 @@ render() {
       <div className="container-fluid">
         <div className="row">
           {/* form section */}
-          <div className="col-12 col-sm-6 col-md-3">
+          {/* <div className="col-12 col-sm-6 col-md-3">
             <h3>Search For An Asteroid</h3>
             <form onSubmit={this.handleFormSubmit}>
               <input
@@ -69,15 +69,15 @@ render() {
                 Search for an Asteroid.
               </button>
             </form>
-          </div>
+          </div> */}
           {/* end form section */}
           {/* begin book result section */}
           <div className="col-12 col-sm-6 col-md-9">
             {!this.state.neos.length ? (
-              <h2 className="text-center">Search For a Near Earth Object</h2>
+              <h2 className="text-center">Near Earth Objects Can be Found with a Scrape</h2>
             ) : (
               <React.Fragment>
-                <h3>Recent Hazardous Asteroids {this.state.searchTerm}</h3>
+                <h3 className="whiteFont">Recent Hazardous Asteroids</h3>
                 <div className="row">
                   {this.state.neos.map(neos => {
                     return (
