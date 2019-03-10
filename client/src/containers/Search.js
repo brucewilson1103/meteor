@@ -79,10 +79,10 @@ class Search extends Component {
                   <div className="row">
                   {this.state.recentNeos.data.map((recentNeo, i) => (
                     <div className="col-12 col-md-6" key={i}>
-                    <div className="card">
+                    <div className="card paddedCard">
               
                       <div className="card-body">
-                        <h5 className="card-title"><strong>NEO Designation</strong>: {recentNeo[0]}</h5>
+                        <h5 className="card-title titleNeo"><strong>NEO Designation</strong>: {recentNeo[0]}</h5>
                         <p className="card-text"><strong>Time of Closest Approach</strong>: {recentNeo[3]}</p>
                         <p className="card-text"><strong>Distance of Closest Approach (AU)</strong>: {recentNeo[5]}</p>
                         {recentNeo[10] ? <p className="card-text"><strong>Observable Brightness</strong>: {recentNeo[10]} in Magnitude</p> : ''}

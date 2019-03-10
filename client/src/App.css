@@ -9,3 +9,11 @@
     .dynamyte{
       margin: 0, auto;
     }
+    .paddedCard{
+      margin-bottom: 30px;
+      background-color: antiquewhite
+    }
+    .titleNeo{
+      background-color: silver;
+      color: midnightblue
+    }
