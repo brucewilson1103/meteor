@@ -16,7 +16,7 @@ const Header = props => {
             className="nav-link text-white"
             activeClassName="active"
           >
-            Search
+            Birthday Asteroids
           </NavLink>
 
           <NavLink
