@@ -32,7 +32,7 @@ mongoose.connect( MONGODB_URI, { useNewUrlParser: true });
 // Routes
 
 // A GET route for scraping the neos
-app.get("/scrape", function (req, res) {
+app.get("/api/scrape", function (req, res) {
   // First, we grab the body of the html with axios
   axios.get("http://www.spaceweather.com/").then(function (response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -66,7 +66,7 @@ app.get("/scrape", function (req, res) {
 });
 
 // Route for getting all Neos from the db
-app.get("/neo", function (req, res) {
+app.get("/api/neo", function (req, res) {
   // Grab every document in the Neos collection
   db.Neo.find({title: {$exists: true}, $where: "this.title.length < 12"})
     .then(function (dbNeo) {
@@ -112,9 +112,10 @@ app.get("/neo", function (req, res) {
 //     });
 // });
 
-app.put("/neo/:id", function (req, res) {
-  // Create a new note and pass the req.body to the entry
-  db.Neo.findOneAndUpdate({ title: req.params.id }, { saved: true }, { new: true })
+app.put("/api/neo/:id", function (req, res) {
+  console.log(req.body);console.log(req.params.id);// Create a new note and pass the req.body to the entry
+  db.Neo.findOneAndUpdate({ _id: req.params.id },  {$set: {saved:true}} )
+
     .then(function (dbNeo) {
       // If we were able to successfully update an Neo, send it back to the client
       res.json(dbNeo);

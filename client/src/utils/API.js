@@ -9,8 +9,8 @@ export default {
     getNeosByName (neoByName) {
       return axios.get(`https://ssd-api.jpl.nasa.gov/cad.api?des=${neoByName}&date-min=1900-01-01&date-max=2100-01-01&dist-max=0.9`)
     },
-    saveObject(neoName) {
-      return axios.put(`/neo/${neoName}`, {});
+    saveObject(neoName, object) {
+      return axios.put(`/api/neo/${neoName}`, {saved:true});
     }
   // getSavedBooks() {
   //   return axios.get('/api/books');

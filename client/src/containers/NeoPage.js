@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import axios from "axios";
-import moment from "moment";
+// import moment from "moment";
 import SpecificNeo from "./SpecificNeo"
 
 class NeoPage extends Component {

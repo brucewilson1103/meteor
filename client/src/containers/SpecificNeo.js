@@ -11,7 +11,7 @@ class Search extends Component {
 
   componentDidMount() {
     axios
-      .get("/neo")
+      .get("/api/neo")
       .then(res => this.setState({ neos: res.data }))
       .catch(err => console.log(err));
       
@@ -32,12 +32,15 @@ class Search extends Component {
       [name]: value
     });
   };
+
   saveObject = objectTitle => {
+    alert(objectTitle)
     // find book in this.state.booksList based on the objectTitle value
-    const objectPicked = this.state.neos.find(object => object.title === objectTitle);
-    console.log(objectPicked.title);
-    API.saveObject(objectPicked.title)
+    // const objectPicked = this.state.neos.find(object => object.title === objectTitle);
+    alert(objectTitle);
+    API.saveObject(objectTitle,{saved:true})
       .then(res => {
+        alert("saved")
         console.log(res.data);
       })
       .catch(err => {
@@ -79,7 +82,7 @@ render() {
               <React.Fragment>
                 <h3 className="whiteFont">Recent Hazardous Asteroids</h3>
                 <div className="row">
-                <h5 className="whiteFont">Click Save Object to flag the NEO for further review.</h5>
+                <h5 className="whiteFont">Click Save Object to flag the NEO for further review.</h5><br/>>
                   {this.state.neos.map(neos => {
                     return (
                       <div className="col-12 col-md-6" key={neos.title}>
@@ -99,7 +102,7 @@ render() {
                               className="btn btn-success btn-small">
                               See More.
                             </a>
-                            <button onClick={() => this.saveObject(neos.title)} className="btn btn-dark btn-small">
+                            <button onClick={() => this.saveObject(neos._id)} className="btn btn-dark btn-small">
                               Save Object.
                             </button>
                           </div>

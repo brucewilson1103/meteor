@@ -12,7 +12,7 @@ class Saved extends Component {
   
     componentDidMount() {
       axios
-        .get("/neo")
+        .get("/api/neo")
         .then(res => {
           console.log(res.data)
           const newArray = res.data.filter(function savedCheck(neo) {
@@ -27,9 +27,9 @@ class Saved extends Component {
         .catch(err => console.log(err));
         
     }
-  getBooks = () => {
-    API.getSavedBooks()
-      .then(res => this.setState({ booksList: res.data }))
+  saveObject = (neoTitle) => {alert("hello");
+    API.savedObject(neoTitle)
+      .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };
 
