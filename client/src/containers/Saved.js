@@ -13,7 +13,17 @@ class Saved extends Component {
     componentDidMount() {
       axios
         .get("/neo")
-        .then(res => this.setState({ neos: res.data }))
+        .then(res => {
+          console.log(res.data)
+          const newArray = res.data.filter(function savedCheck(neo) {
+              return neo.saved
+            })
+          
+
+          // this.setState({ neos: newArray})
+          
+        })
+        
         .catch(err => console.log(err));
         
     }
@@ -43,41 +53,39 @@ class Saved extends Component {
           <div className="row">
             {/* begin book result section */}
             <div className="col-12">
-              {!this.state.length ? (
+              {!this.state.neos.length ? (
                 <h2 className="text-center">No Saved Objects To Display</h2>
               ) : (
                 <React.Fragment>
                   <h3>Showing Saved Objects</h3>
                   <div className="row">
-                    {this.state.map(book => {
-                      return (
-                        <div className="col-12 col-md-4" key={book._id}>
-                          <div className="card">
-                            <img src={book.image} alt={book.title} className="card-img-top" />
-                            <div className="card-body">
-                              <h5 className="card-title">{book.title}</h5>
-                              <p className="card-text">Released: {book.date}</p>
-                              {book.authors ? <p className="card-text">By: {book.authors.join(', ')}</p> : ''}
-                              <p className="card-text">
-                                <strong>Description</strong>: {book.description}{' '}
-                              </p>
+                  {this.state.neos.map(neos => {
+                    return (
+                      <div className="col-12 col-md-6" key={neos.title}>
+                        <div className="card paddedCard">
+                          <img className = "sizeAst" src="/asteroid.png" alt={neos.title} className="card-img-top" />
+                          <div className="card-body">
+                            <h5 className="card-title">{neos.title}</h5>
+                            {neos.authors ? <p className="card-text">By: {neos.authors.join(', ')}</p> : ''}
+                            <p className="card-text">
+                              <strong>Dangerous Asteroid Name</strong>: {neos.title}{' '}
+                            </p>
 
-                              <a
-                                href={book.link}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                className="btn btn-success btn-small">
-                                See More.
-                              </a>
-                              <button onClick={() => this.deleteBook(book._id)} className="btn btn-dark btn-small">
-                                Delete Object.
-                              </button>
-                              <Link to={`/saved/${book._id}`} className="btn btn-block btn-danger">View Object</Link>
-                            </div>
+                            <a
+                              href={neos.link}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                              className="btn btn-success btn-small">
+                              See More.
+                            </a>
+                            <button onClick={() => this.saveObject(neos.title)} className="btn btn-dark btn-small">
+                              Save Object.
+                            </button>
                           </div>
                         </div>
-                      );
-                    })}
+                      </div>
+                    );
+                  })}
                   </div>
                 </React.Fragment>
               )}

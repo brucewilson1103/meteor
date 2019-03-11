@@ -52,7 +52,7 @@ class Search extends Component {
             {/* form section */}
             <div className="col-12 col-sm-6 col-md-3">
               <h3 className="whiteFont">
-                Did an Asteroid come close to destroying the Earth on your Birthday?
+                Will an Asteroid come close to destroying the Earth on your Birthday?
               </h3>
               <form onSubmit={this.handleFormSubmit}>
                 <input

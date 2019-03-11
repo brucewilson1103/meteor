@@ -35,8 +35,8 @@ class Search extends Component {
   saveObject = objectTitle => {
     // find book in this.state.booksList based on the objectTitle value
     const objectPicked = this.state.neos.find(object => object.title === objectTitle);
-    console.log(objectPicked);
-    API.saveBook(objectPicked)
+    console.log(objectPicked.title);
+    API.saveObject(objectPicked.title)
       .then(res => {
         console.log(res.data);
       })
@@ -79,6 +79,7 @@ render() {
               <React.Fragment>
                 <h3 className="whiteFont">Recent Hazardous Asteroids</h3>
                 <div className="row">
+                <h5 className="whiteFont">Click Save Object to flag the NEO for further review.</h5>
                   {this.state.neos.map(neos => {
                     return (
                       <div className="col-12 col-md-6" key={neos.title}>

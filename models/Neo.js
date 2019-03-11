@@ -7,6 +7,10 @@ var Schema = mongoose.Schema;
 // This is similar to a Sequelize model
 var NeoSchema = new Schema({
   // `title` is required and of type String
+  saved: {
+    type: Boolean,
+    default: false
+  },
   title: {
     type: String,
     required: true
@@ -16,6 +20,8 @@ var NeoSchema = new Schema({
     type: String,
     required: true
   },
+
+  
   // `note` is an object that stores a Note id
   // The ref property links the ObjectId to the Note model
   // This allows us to populate the Neo with an associated Note

@@ -27,7 +27,7 @@ const Header = props => {
             <button className= "btn-info"> Saved</button>
           </NavLink>
           <NavLink
-            to="/neo"
+            to="/neoPage"
             className="nav-link text-white"
             activeClassName="active"
           >

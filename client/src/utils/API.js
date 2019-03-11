@@ -6,8 +6,11 @@ export default {
     getNeosByDate (neoDate) {
       return axios.get(`https://ssd-api.jpl.nasa.gov/cad.api?dist-max=10LD&date-min=${neoDate}&date-max=2050-01-01&sort=date`)
     },
-    saveObject(bookData) {
-      return axios.post('/api/books', bookData);
+    getNeosByName (neoByName) {
+      return axios.get(`https://ssd-api.jpl.nasa.gov/cad.api?des=${neoByName}&date-min=1900-01-01&date-max=2100-01-01&dist-max=0.9`)
+    },
+    saveObject(neoName) {
+      return axios.put(`/neo/${neoName}`, {});
     }
   // getSavedBooks() {
   //   return axios.get('/api/books');

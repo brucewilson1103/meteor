@@ -4,7 +4,7 @@ import axios from "axios";
 import moment from "moment";
 import SpecificNeo from "./SpecificNeo"
 
-class Neo extends Component {
+class NeoPage extends Component {
   state = {
     searchTerm: "",
     neos: [],
@@ -13,7 +13,7 @@ class Neo extends Component {
 
   componentDidMount() {
     axios
-      .get(API.getNeosByDate(moment(Date.now()).format("YYYY, MM, DD")))
+      .get(API.getNeosByName())
       .then(res => this.setState({ recentNeos: res.data }))
       .catch(err => console.log(err));
   }
@@ -22,7 +22,7 @@ class Neo extends Component {
     if (!this.state.searchTerm) {
       return false;
     }
-    API.getNeosByDate(this.state.searchTerm).then(res => 
+    API.getNeosByName(this.state.searchTerm).then(res => 
       {console.log(res.data);
       
         this.setState({ recentNeos: res.data })
@@ -78,7 +78,7 @@ class Neo extends Component {
                 <img className = "sizeAst" src="/meteorCrater.png" alt="Search Image" className="card-img-top" />
               ) : (
                 <React.Fragment>
-                  <h3 className="whiteFont">Hazardous Asteroids Near Your Birthday On {this.state.searchTerm}</h3>
+                  <h3 className="whiteFont">Hazardous Asteroid: {this.state.searchTerm}</h3>
                   <div className="row">
                   {this.state.recentNeos.data.map((recentNeo, i) => (
                     <div className="col-12 col-md-6" key={i}>
@@ -119,4 +119,4 @@ class Neo extends Component {
   }
 }
 
-export default Neo;
+export default NeoPage;
