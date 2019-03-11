@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const path = require('path');
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -22,7 +23,9 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
-app.use(express.static("public"));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static("client/build"));
+}
 
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NEO"
@@ -124,6 +127,10 @@ app.put("/api/neo/:id", function (req, res) {
       // If an error occurred, send it to the client
       res.json(err);
     });
+});
+
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 // Start the server
