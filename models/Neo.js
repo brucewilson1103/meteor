@@ -13,7 +13,8 @@ var NeoSchema = new Schema({
   },
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   // `link` is required and of type String
   link: {

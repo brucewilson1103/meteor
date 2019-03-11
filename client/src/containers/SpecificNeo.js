@@ -87,7 +87,7 @@ render() {
                           <img className = "sizeAst" src="/asteroid.png" alt={neos.title} className="card-img-top" />
                           <div className="card-body">
                             <h5 className="card-title">{neos.title}</h5>
-                            {neos.authors ? <p className="card-text">By: {neos.authors.join(', ')}</p> : ''}
+                            
                             <p className="card-text">
                               <strong>Dangerous Asteroid Name</strong>: {neos.title}{' '}
                             </p>

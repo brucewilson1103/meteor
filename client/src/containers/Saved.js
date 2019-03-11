@@ -19,8 +19,8 @@ class Saved extends Component {
               return neo.saved
             })
           
-
-          // this.setState({ neos: newArray})
+          console.log(newArray);
+          this.setState({ neos: newArray})
           
         })
         
