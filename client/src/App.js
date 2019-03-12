@@ -38,7 +38,7 @@ class App extends Component {
         </Switch>
           <div className="App">
             <header className="App-header">
-              <p>Bruce Wilson</p>
+              <p> Bruce Wilson</p>
             </header>
             
           </div>

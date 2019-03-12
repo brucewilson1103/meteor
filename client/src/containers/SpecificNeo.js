@@ -34,13 +34,13 @@ class Search extends Component {
   };
 
   saveObject = objectTitle => {
-    alert(objectTitle)
+    
+    alert("Your Asteroid has been marked for further review." )
     // find book in this.state.booksList based on the objectTitle value
     // const objectPicked = this.state.neos.find(object => object.title === objectTitle);
-    alert(objectTitle);
+    
     API.saveObject(objectTitle,{saved:true})
       .then(res => {
-        alert("saved")
         console.log(res.data);
       })
       .catch(err => {
@@ -82,7 +82,7 @@ render() {
               <React.Fragment>
                 <h3 className="whiteFont">Recent Hazardous Asteroids</h3>
                 <div className="row">
-                <h5 className="whiteFont">Click Save Object to flag the NEO for further review.</h5><br/>>
+                <h5 className="whiteFont">Click Save Object to flag the NEO for further review.</h5><br/>
                   {this.state.neos.map(neos => {
                     return (
                       <div className="col-12 col-md-6" key={neos.title}>
