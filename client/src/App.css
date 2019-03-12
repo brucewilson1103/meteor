@@ -3,10 +3,10 @@ body{
   background-Image: url("/asteroidbelt.jpg"); };
 
 font{
-  color: antiquewhite;
+  color: rgb(216, 143, 7);
 }
 .whiteFont{
-  color: antiquewhite;
+  color: rgb(203, 143, 33);
 }
     .dynamyte{
       margin: 0, auto;

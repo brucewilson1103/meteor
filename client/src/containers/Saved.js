@@ -57,7 +57,7 @@ class Saved extends Component {
                 <h2 className="text-center">No Saved Objects To Display</h2>
               ) : (
                 <React.Fragment>
-                  <h3>Showing Saved Objects</h3>
+                  <h3 className="whiteFont">Showing Saved Objects</h3>
                   <div className="row">
                   {this.state.neos.map(neos => {
                     return (
